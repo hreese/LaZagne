@@ -1,3 +1,122 @@
+LaZagne 2.0 (20/12/2016)
+- Only Windows:
+	* only one process is launched (impersonnation is done using "ImpersonateLoggedOnUser" and no more "CreateProcessAsUser")
+	* no more temporary files written on the disk
+		* uses of powerdump from empire (thanks to adaptivethreat) to avoid writing hives on the disk (avoid "reg save ...")
+	* better way to catch errors
+	* json fixes (output to be more "human readable" + error encoding)
+	* code cleaned
+	* New category added called "memory": used to retrieve password in memory
+		* KeeThief added (thanks to adaptivethreat) - retrieve keepass (version 2.x) password from memory
+			* Powershell code used from https://github.com/adaptivethreat/KeeThief/
+		* Browser passwords present in memory could be retrieved
+			* Thanks to n1nj4sec for his awesome project "memorpy"
+				* https://github.com/n1nj4sec/memorpy
+	* New category added called "php":
+		* New module "PHP Composer" (thanks to righettod => https://github.com/righettod)
+
+LaZagne 1.8 (15/11/2016)
+- Only Windows:
+	* Lots of minor bugs fixed
+		* Firefox
+			* when many profiles used (thanks to Aorimn) or when profiles.ini is corrupted
+		* IE: retrieving historic list or windows vault
+		* Writing json file
+		* etc...
+
+LaZagne 1.7 (11/09/2016)
+- Only Windows:
+	* New modules (thanks to righettod => https://github.com/righettod): 
+		* Robomongo - MongoDB client
+	* Internet Explorer bug fix (for windows 7)
+
+LaZagne 1.6 (05/09/2016)
+- Only Windows:
+	* Internet Explorer history retrieved using powershell - no more dll written on the disk (all in memory)
+	* Internet Explorer passwords stored in the credential manager retrieved (for Win8 and higher)
+	* Wifi bug fixed
+
+LaZagne 1.5 (01/08/2016)
+- Only Windows:
+	* New modules (thanks to righettod => https://github.com/righettod): 
+		* Maven java build tool 
+		* Apache Directory Studio 
+		* "OpenSSH" application
+
+LaZagne 1.4 (21/07/2016)
+- Only Windows:
+	* New module: Git for Windows (thanks to righettod => https://github.com/righettod)
+
+LaZagne 1.3 (02/07/2016)
+- Only Windows
+See "User impersonnation" in README for more information
+	* User impersonation (high privileges needed)
+		* Stealing user process token (when other user processes are running on the system)
+			* All credentials can be retrieved (Chrome, Firefox, etc.)
+		* Browsing file system (ex: C:\Users\<user>\...) 
+			* Only software's passwords which do not use Windows API to encrypt it, can be retrieved (Firefox, Jitsi, Pidgin, etc.). 
+	* Json output has been implemented (txt output is still present with the options -oN)
+		* Lazagne all -oJ => Json output
+	* Standalone lighter (from 18 Mo to 6 Mo) => Thanks to the new version of Pyinstaller
+	* Fix some bugs
+
+LaZagne 1.1 (22/10/2015)
+- Only Windows
+	* New category: games (Thanks to David Lodge)
+		* Galcon Fusion 
+		* Kalypso Media Launcher
+		* Rogue's Tale
+		* Turba
+
+LaZagne 1.0 (04/10/2015)
+- Only Windows
+	* Fix chrome database locked
+	* Fix windows secrets bug
+	* Fix opera bug
+
+- For Linux
+	* Fix opera bug
+
+LaZagne 0.9.1 (09/07/2015)
+- Only Windows
+	* Fix mastepassword check error - mozilla
+	* Fix database error - mozilla
+
+- For Linux
+	* Fix encoding error
+
+LaZagne 0.9 (01/07/2015)
+- Only Windows
+	* Fix Opera bug (thanks to rolandstarke)
+	* Fix encoding error for generic network passwords
+
+- For Windows / Linux
+	* Version number available from the main menu (before: Lazagne all --version => now: Lazagne --version)
+	* spelling mistake corrected
+
+LaZagne 0.8 (11/06/2015)
+- Only Linux
+	* /etc/shadow modules (dictionary attack on hash)
+
+- For Windows / Linux 
+	* Management of the following options "-path" (for dictionary attack) and "-b" (for bruteforce attack) in a different way. Used as general options and not implemented by module. Using the same option, the file will be used by different modules; example: to find the mozilla masterpassword, the unix system password (from the hash), used by skype (for windows), etc.
+
+LaZagne 0.71 (04/06/2015)
+- Only Linux
+	* Wifi password module from WPA Supplicant implemented (by rpesche)
+
+LaZagne 0.7 (29/05/2015)
+- For Windows / Linux 
+	* Fix mozilla bug (special characters were not printed)
+
+LaZagne 0.6 (26/05/2015)
+- For Windows / Linux 
+	* Firefox / Thunderbird: No more dependency with nss library (many thanks to Laurent Clevy for its awesome technic: https://github.com/lclevy/firepwd)
+	* Fix opera bug
+
+- Only Windows
+	* WinSCP false positive removed (when SSH key is used)
+
 LaZagne 0.5 (21/05/2015)
 - For Windows
 	* Fix chrome bug
